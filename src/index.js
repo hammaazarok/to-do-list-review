@@ -1,10 +1,14 @@
 import './index.css';
-function component() {
-    const divElement = document.createElement('div');
-    const h2 = document.createElement('h2');
-    h2.innerText = 'My first webpack setup';
-    divElement.appendChild(h2);
-    return divElement;
-}
+import TodoListItems from './todolist.js';
+import * as addRemove from './add-remove.js';
+import * as storage from './storage.js';
+import { changeStatus, clearAllCompleted } from './interactive.js';
 
-document.body.appendChild(component());
+const tasks = storage.getTasksFromStorage();
+
+TodoListItems(tasks);
+addRemove.TodoListAdd(tasks);
+addRemove.TodoListEdit(tasks);
+addRemove.TodoListDelete(tasks);
+changeStatus(tasks);
+clearAllCompleted(tasks);
