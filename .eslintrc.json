@@ -12,8 +12,8 @@
   "extends": ["airbnb-base"],
   "rules": {
     "no-shadow": "off",
-    "max-classes-per-file":"off",
-    "class-methods-use-this":"off",
+    "no-use-before-define":"off",
+    "import/no-cycle":"off",
     "no-param-reassign": "off",
     "eol-last": "off",
     "import/extensions": [ 1, {

@@ -1,16 +1,19 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# WEBPACK TEMPLATE^
+# To Do List
 
-web pack template to use on future webpack projects 
+a to do list javascript app buit using webpack and es6
+
 ## Getting Started
 
 - Clone the repo.
 - run `npm install` to download the necessary modules.
-- run `npm start` to load the proj
+- run `npm start` to load the project
+
+## Live Demo
+[Live Demo](https://hammaazarok.github.io/to-do-list)
 
 ### Prerequisites
-
 - Make sure you have node installed on your local machine.
 - html and css code editor like Vscode or Vim.
 
