@@ -2,6 +2,14 @@ import TodoListItems from './todolist.js';
 import * as storage from './storage.js';
 import { changeStatus } from './interactive.js';
 
+const updateListener = (taskss) => {
+  TodoListItems(taskss);
+  TodoListDelete(taskss);
+  TodoListEdit(taskss);
+  changeStatus(taskss);
+  storage.setTasksToStorage(taskss);
+};
+
 const reindexTasks = (taskss) => {
   taskss.forEach((element, i) => {
     element.index = i;
@@ -22,11 +30,8 @@ const TodoListEdit = (tasks) => {
         index,
       };
       tasks[index] = task;
-      storage.setTasksToStorage(tasks);
-      TodoListItems(tasks);
       reindexTasks(tasks);
-      TodoListDelete(tasks);
-      changeStatus(tasks);
+      updateListener(tasks);
     });
   });
 };
@@ -45,11 +50,7 @@ const TodoListDelete = (taskss) => {
             taskss = reindexTasks(taskss);
             taskss = taskss.filter((t) => t.index !== eindex);
             taskss = reindexTasks(taskss);
-            storage.setTasksToStorage(taskss);
-            TodoListItems(taskss);
-            TodoListDelete(taskss);
-            TodoListEdit(taskss);
-            changeStatus(taskss);
+            updateListener(taskss);
           }
         });
         removeTask.forEach((t) => {
@@ -79,12 +80,8 @@ const TodoListAdd = (taskss) => {
         index: taskss.length,
       };
       taskss.push(task);
-      TodoListItems(taskss);
-      TodoListDelete(taskss);
-      storage.setTasksToStorage(taskss);
+      updateListener(taskss);
       addTask.value = null;
-      TodoListEdit(taskss);
-      changeStatus(taskss);
     }
   });
 };
