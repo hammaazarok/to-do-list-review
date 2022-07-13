@@ -14,7 +14,7 @@ const TodoListItems = (taskss) => {
     divElement2.classList.add('line');
     divElement.classList.add('list');
     divElement.innerHTML = htmlitem;
-    todolist.appendChild(divElement,divElement2);
+    todolist.appendChild(divElement, divElement2);
   });
 };
 
